@@ -52,11 +52,11 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
     @Override
     public Optional<Item> findById(Long id) {
-        String sql = "select id, item_name, price, quantity where id = ?";
-        try{
+        String sql = "select id, item_name, price, quantity from item where id = ?";
+        try {
             Item item = template.queryForObject(sql, itemRowMapper(), id);
             return Optional.of(item);
-        } catch(EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }
     }
