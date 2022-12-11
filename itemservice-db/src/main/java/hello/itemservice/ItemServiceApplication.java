@@ -1,9 +1,7 @@
 package hello.itemservice;
 
-import hello.itemservice.config.JdbcTemplateV2Config;
-import hello.itemservice.config.JpaConfig;
+import hello.itemservice.config.*;
 import hello.itemservice.repository.ItemRepository;
-import hello.itemservice.config.JdbcTemplateV1Config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +15,9 @@ import javax.sql.DataSource;
 
 @Slf4j
 //@Import(JdbcTemplateV2Config.class)
-@Import(JpaConfig.class)
+//@Import(JpaConfig.class)
+//@Import(SpringDataJpaConfig.class)
+@Import(QuerydslConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
